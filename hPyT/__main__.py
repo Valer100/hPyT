@@ -100,17 +100,17 @@ class ImageManager:
 
     def _load_images(self):
         image_configs = {
-            "hide": ("app-assets/hide.png", (15, 15)),
-            "unhide": ("app-assets/unhide.png", (15, 15)),
-            "github": ("app-assets/github.png", (15, 15)),
-            "pypi": ("app-assets/pypi.png", (15, 15)),
-            "rocket": ("app-assets/Rocket.png", (15, 15)),
-            "enable": ("app-assets/enable.png", (15, 15)),
-            "disable": ("app-assets/disable.png", (15, 15)),
-            "play": ("app-assets/play.png", (15, 15)),
-            "pause": ("app-assets/pause.png", (15, 15)),
-            "history": ("app-assets/history.png", (20, 20)),
-            "cross": ("app-assets/cross.png", (20, 20)),
+            "hide": ("assets/hide.png", (15, 15)),
+            "unhide": ("assets/unhide.png", (15, 15)),
+            "github": ("assets/github.png", (15, 15)),
+            "pypi": ("assets/pypi.png", (15, 15)),
+            "rocket": ("assets/Rocket.png", (15, 15)),
+            "enable": ("assets/enable.png", (15, 15)),
+            "disable": ("assets/disable.png", (15, 15)),
+            "play": ("assets/play.png", (15, 15)),
+            "pause": ("assets/pause.png", (15, 15)),
+            "history": ("assets/history.png", (20, 20)),
+            "cross": ("assets/cross.png", (20, 20)),
         }
 
         for name, (path, size) in image_configs.items():
@@ -1050,7 +1050,7 @@ class HPyTPreview:
 
     def setup_window(self):
         self.window.title("hPyT - Preview")
-        self.window.iconbitmap(ResourceManager.get_path("app-assets/icon.ico"))
+        self.window.iconbitmap(ResourceManager.get_path("assets/icon.ico"))
         self.window.configure(fg_color=self.theme.primary_color)
 
     def create_ui(self):
