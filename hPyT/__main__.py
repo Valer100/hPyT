@@ -1,23 +1,46 @@
-from customtkinter import (
-    CTk,
-    CTkImage,
-    CTkFrame,
-    CTkLabel,
-    CTkButton,
-    CTkSlider,
-    CTkOptionMenu,
-    CTkToplevel,
-    CTkScrollableFrame,
-)
-import customtkinter
 from tkinter import StringVar
 from dataclasses import dataclass
 from typing import Dict
 from webbrowser import open
-from PIL import Image
 import os.path
 from os import chdir
+import subprocess
 import sys
+
+try:
+    from customtkinter import (
+        CTk,
+        CTkImage,
+        CTkFrame,
+        CTkLabel,
+        CTkButton,
+        CTkSlider,
+        CTkOptionMenu,
+        CTkToplevel,
+        CTkScrollableFrame,
+    )
+
+    import customtkinter
+    from win32mica import ApplyMica, MicaStyle, MicaTheme
+    from PIL import Image
+except ModuleNotFoundError:
+    print("The hPyT Preview program needs the following additional dependencies to be installed for working:\n")
+    print("- customtkinter")
+    print("- win32mica")
+    print("- Pillow")
+
+    install_modules_permission = input("\nWould you like to install them? (Y/N): ")
+
+    if install_modules_permission.lower() == "y":
+        print("\n")
+        subprocess.call(f"\"{sys.executable}\" -m pip install customtkinter win32mica Pillow", shell=True)
+
+        print("\nRelaunching the preview program...\n")
+        subprocess.call(f"\"{sys.executable}\" \"{__file__}\"", shell=True)
+        sys.exit(0)
+    else:
+        sys.exit(0)
+
 from hPyT import (
     title_bar_color,
     window_animation,
@@ -35,7 +58,7 @@ from hPyT import (
 )
 
 # Change the current directory to the one where the demo program is
-# This fixes "No such file or directory" exceptions
+# This fixes FileNotFoundError exceptions
 chdir(os.path.dirname(__file__))
 
 customtkinter.set_appearance_mode("Dark")
@@ -853,8 +876,6 @@ class ThemeManager:
 
     def _setup_theme(self):
         try:
-            from win32mica import ApplyMica, MicaStyle, MicaTheme
-
             ApplyMica(
                 HWND=self.window.frame(), Theme=MicaTheme.DARK, Style=MicaStyle.ALT
             )
