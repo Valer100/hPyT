@@ -13,7 +13,6 @@ import customtkinter
 from tkinter import StringVar
 from dataclasses import dataclass
 from typing import Dict
-import pyperclip
 from webbrowser import open
 from PIL import Image
 import os.path
@@ -132,7 +131,9 @@ class CodeCopyButton(BaseComponent):
         )
 
     def _copy_code(self):
-        pyperclip.copy(self.code)
+        self.button.winfo_toplevel().clipboard_clear()
+        self.button.winfo_toplevel().clipboard_append(self.code)
+        
         self.button.configure(text="Copied !")
         self.parent.after(1000, lambda: self.button.configure(text=self.button_text))
 
