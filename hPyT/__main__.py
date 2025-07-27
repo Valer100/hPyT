@@ -87,16 +87,21 @@ IS_WINDOWS_11: bool = sys.getwindowsversion().build >= 22000
 class ThemeConfig:
     """Configuration for app theming"""
 
+    primary_color: str
+    secondary_color: str
+    button_color: str
+    button_hover_color: str
+
     if IS_WINDOWS_11:
-        primary_color: str = "black"
-        secondary_color: str = "grey6"
-        button_color: str = "grey13"
-        button_hover_color: str = "grey16"
+        primary_color = "black"
+        secondary_color = "grey6"
+        button_color = "grey13"
+        button_hover_color = "grey16"
     else:
-        primary_color: str = "#202020"
-        secondary_color: str = "#2F2F2F"
-        button_color: str = "#414141"
-        button_hover_color: str = "#494949"
+        primary_color = "#202020"
+        secondary_color = "#2F2F2F"
+        button_color = "#414141"
+        button_hover_color = "#494949"
 
     fallback_bg_color: str = "#202020"
     fallback_frame_color: str = "#2F2F2F"
@@ -129,7 +134,7 @@ class ImageManager:
             full_path = path
             self.images[name] = CTkImage(light_image=Image.open(full_path), size=size)
 
-    def get(self, name: str) -> CTkImage:
+    def get(self, name: str) -> CTkImage | None:
         return self.images.get(name)
 
 
