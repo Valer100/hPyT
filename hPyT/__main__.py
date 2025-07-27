@@ -612,18 +612,6 @@ class LinksFeature(FeatureFrame):
         )
         pypi_button.pack(padx=10, pady=5, side="bottom")
 
-        quick_install_button = CTkButton(
-            self.frame,
-            text="Quick Install",
-            command=lambda: os.system("pip install hPyT"),
-            fg_color=self.theme.button_color,
-            hover_color=self.theme.button_hover_color,
-            font=("Segoe UI", 13),
-            image=self.images.get("rocket"),
-            compound="right",
-        )
-        quick_install_button.pack(padx=10, pady=(15, 5), side="bottom")
-
 
 class AllStuffsFeature(FeatureFrame):
     """All stuffs control feature"""
