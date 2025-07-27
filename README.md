@@ -1,8 +1,9 @@
 # hPyT - Hack Python Titlebar
 
-A package to manipulate windows and titlebar of GUI applications made using Python. Supports **Windows 7, 8.x, 10, and 11.**
+A package for manipulating windows and titlebar of GUI applications made using Python. Supports **Windows 7, 8.x, 10, and 11.**
 
 https://github.com/Zingzy/hPyT/assets/90309290/f86df1c7-b75b-4477-974a-eb34cc117df3
+
 <br>
 
 <details>

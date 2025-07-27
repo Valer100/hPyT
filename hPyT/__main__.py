@@ -1112,8 +1112,8 @@ class HPyTPreview:
 
         CTkLabel(
             top_frame,
-            text="A Python package to manipulate window titlebar in GUI applications",
-            wraplength=500,
+            text="A package for manipulating windows and titlebar of GUI applications made using Python.",
+            wraplength=700,
             font=("Segoe UI", 13),
             justify="center",
             fg_color=self.theme.primary_color,
