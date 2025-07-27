@@ -387,7 +387,7 @@ title_bar_color.set_accent(window) # sets the titlebar color to the current wind
 ![Accent TitleBar](https://raw.githubusercontent.com/zingzy/hPyT/main/.github/assets/accent_titlebar.png)
 
 > [!NOTE]
-> The titlebar color will automatically change when the windows accent color changes
+> The titlebar color will automatically change when the Windows accent color changes
 
 ## 🖌️ Custom TitleBar Text Color
 
