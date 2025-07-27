@@ -104,18 +104,6 @@ class ThemeConfig:
     fallback_button_hover: str = "#494949"
 
 
-class ResourceManager:
-    """Handles resource path resolution"""
-
-    @staticmethod
-    def get_path(relative_path: str) -> str:
-        try:
-            base_path = sys._MEIPASS
-        except Exception:
-            base_path: str = os.path.abspath(".")
-        return os.path.join(base_path, relative_path)
-
-
 class ImageManager:
     """Manages app images"""
 
@@ -138,7 +126,7 @@ class ImageManager:
         }
 
         for name, (path, size) in image_configs.items():
-            full_path = ResourceManager.get_path(path)
+            full_path = path
             self.images[name] = CTkImage(light_image=Image.open(full_path), size=size)
 
     def get(self, name: str) -> CTkImage:
@@ -1066,7 +1054,7 @@ class HPyTPreview:
 
     def setup_window(self):
         self.window.title("hPyT - Preview")
-        self.window.iconbitmap(ResourceManager.get_path("assets/icon.ico"))
+        self.window.iconbitmap("assets/icon.ico")
         self.window.configure(fg_color=self.theme.primary_color)
 
     def create_ui(self):
