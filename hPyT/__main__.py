@@ -305,8 +305,6 @@ class TitleBarFeature(FeatureFrame):
                 command=self._toggle_title_bar,
                 image=self.images.get("unhide"),
             )
-            # Update copy code when state changes
-            self.copy_button.code = self._get_copy_code()
         else:
             title_bar.unhide(self.window)
             self.toggle_button.configure(
@@ -314,8 +312,9 @@ class TitleBarFeature(FeatureFrame):
                 command=self._toggle_title_bar,
                 image=self.images.get("hide"),
             )
-            # Update copy code when state changes
-            self.copy_button.code = self._get_copy_code()
+            
+        # Update copy code when state changes
+        self.copy_button.code = self._get_copy_code()
 
 
 class RainbowTitleBarFeature(FeatureFrame):
@@ -860,9 +859,9 @@ class StylizedTextFeature(FeatureFrame):
         style = self.style_var.get()
         if style == "normal":
             return """from hPyT import *\n\ntitle_text.reset(window) # to reset the title text to normal"""
-        else:
-            style_num = style.split(" ")[-1]
-            return f"""from hPyT import *\n\ntitle_text.stylize(window, {style_num}) # {style_num} is the style number\n# title_text.reset(window) # to reset the title text to normal"""
+    
+        style_num = style.split(" ")[-1]
+        return f"""from hPyT import *\n\ntitle_text.stylize(window, {style_num}) # {style_num} is the style number\n# title_text.reset(window) # to reset the title text to normal"""
 
     def _on_style_change(self, *args):
         self.copy_button.code = self._get_copy_code()
