@@ -386,7 +386,7 @@ class OpacityFeature(FeatureFrame):
             wraplength=150,
             font=("Segoe UI", 12, "bold"),
             justify="center",
-            text_color="#FF5050"
+            text_color="#FF5050",
         )
         opacity_warning.pack(padx=10, pady=(10, 0))
 
