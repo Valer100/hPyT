@@ -1112,7 +1112,9 @@ class HPyTPreview:
         self.main_frame.place(relx=0.5, rely=0.5, anchor="center")
         self.main_frame.update()
 
-        self.window.geometry(f"{self.main_frame.winfo_reqwidth()}x{self.main_frame.winfo_reqheight()}")
+        self.window.geometry(
+            f"{self.main_frame.winfo_reqwidth()}x{self.main_frame.winfo_reqheight()}"
+        )
 
     def _create_top_frame(self):
         top_frame = CTkFrame(self.main_frame, fg_color=self.theme.primary_color)
