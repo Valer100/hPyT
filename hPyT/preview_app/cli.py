@@ -1073,7 +1073,7 @@ class HPyTPreview:
             hover_color="grey16",
             font=("Segoe UI", 15),
             width=20,
-            command=lambda: open_link("https://github.com/zingzy/hPyT")
+            command=lambda: open_link("https://github.com/zingzy/hPyT"),
         )
         github_button.place(x=918, y=10)
 
@@ -1086,7 +1086,7 @@ class HPyTPreview:
             hover_color="grey16",
             font=("Segoe UI", 15),
             width=20,
-            command=lambda: open_link("https://pypi.org/project/hPyT")
+            command=lambda: open_link("https://pypi.org/project/hPyT"),
         )
         pypi_button.place(x=964, y=10)
 
