@@ -306,6 +306,7 @@ class TitleBarFeature(FeatureFrame):
         if self.toggle_button.cget("text") == "   Hide":
             no_span = self.no_span_var.get().lower() == "true"
             title_bar.hide(self.window, no_span=no_span)
+
             self.toggle_button.configure(
                 text="    Unhide",
                 command=self._toggle_title_bar,
@@ -1111,10 +1112,7 @@ class HPyTPreview:
         self.main_frame.place(relx=0.5, rely=0.5, anchor="center")
         self.main_frame.update()
 
-        self.window.minsize(
-            width=self.main_frame.winfo_reqwidth(),
-            height=self.main_frame.winfo_reqheight(),
-        )
+        self.window.geometry(f"{self.main_frame.winfo_reqwidth()}x{self.main_frame.winfo_reqheight()}")
 
     def _create_top_frame(self):
         top_frame = CTkFrame(self.main_frame, fg_color=self.theme.primary_color)
