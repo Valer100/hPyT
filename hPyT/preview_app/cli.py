@@ -386,7 +386,7 @@ class OpacityFeature(FeatureFrame):
             wraplength=150,
             font=("Segoe UI", 12, "bold"),
             justify="center",
-            text_color="#FF5050"
+            text_color="#FF5050",
         )
         opacity_warning.pack(padx=10, pady=(10, 0))
 
@@ -401,8 +401,8 @@ class OpacityFeature(FeatureFrame):
             fg_color=self.theme.button_color,
             width=120,
             progress_color=(
-                customtkinter.ThemeManager.theme["CTkButton"]["fg_color"][0], 
-                customtkinter.ThemeManager.theme["CTkButton"]["fg_color"][0]
+                customtkinter.ThemeManager.theme["CTkButton"]["fg_color"][0],
+                customtkinter.ThemeManager.theme["CTkButton"]["fg_color"][0],
             ),
             command=self._on_opacity_change,
         )
@@ -410,7 +410,10 @@ class OpacityFeature(FeatureFrame):
         self.opacity_slider.pack(padx=10, pady=(5, 5), side="bottom")
         self.opacity_slider.set(1)
 
-        self.window.bind("<Control-Shift-R>", lambda event: [self.opacity_slider.set(1), opacity.set(self.window, 1.0)])
+        self.window.bind(
+            "<Control-Shift-R>",
+            lambda event: [self.opacity_slider.set(1), opacity.set(self.window, 1.0)],
+        )
 
         self.copy_button = CodeCopyButton(
             self.frame,
