@@ -410,6 +410,8 @@ class OpacityFeature(FeatureFrame):
         self.opacity_slider.pack(padx=10, pady=(5, 5), side="bottom")
         self.opacity_slider.set(1)
 
+        self.window.bind("<Control-Shift-R>", lambda event: [self.opacity_slider.set(1), opacity.set(self.window, 1.0)])
+
         self.copy_button = CodeCopyButton(
             self.frame,
             self.theme,
