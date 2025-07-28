@@ -140,7 +140,7 @@ class ImageManager:
             full_path = path
             self.images[name] = CTkImage(light_image=Image.open(full_path), size=size)
 
-    def get(self, name: str) -> CTkImage | None:
+    def get(self, name: str) -> "CTkImage | None":
         return self.images.get(name)
 
 
@@ -1032,8 +1032,7 @@ class ReleaseHistoryFeature:
                 ).pack(pady=2, anchor="w", padx=5)
 
         try:
-            if IS_WINDOWS_11:
-                ApplyMica(HWND=top.frame(), Theme=MicaTheme.DARK, Style=MicaStyle.ALT)
+            ApplyMica(HWND=top.frame(), Theme=MicaTheme.DARK, Style=MicaStyle.ALT)
         except Exception:
             top.configure(fg_color=self.theme.fallback_bg_color)
             main_frame.configure(fg_color=self.theme.fallback_bg_color)
