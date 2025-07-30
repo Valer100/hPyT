@@ -1,4 +1,3 @@
-from tkinter import StringVar
 from dataclasses import dataclass
 from typing import Dict
 from webbrowser import open as open_link
@@ -7,6 +6,68 @@ from os import chdir
 import subprocess
 import sys
 import tempfile
+
+try:
+    from tkinter import StringVar
+except Exception as e:
+    print(f"Error importing tkinter: {e}\n")
+    print(
+        "The hPyT Preview program requires the tkinter module to work properly. This probably means that your Python installation wasn't installed with tk/tcl support. To modify it so that it includes the tk/tcl support, follow these steps, then try running the Preview program again:\n"
+    )
+
+    windows_version = sys.getwindowsversion()
+
+    if windows_version.major == 10 and windows_version.build >= 22000:
+        # Show the steps for Windows 11
+
+        print("1. Open the Settings app.")
+        print('2. In the sidebar, click on "Apps".')
+        print('3. In the Apps section, go to "Installed apps"')
+        print(
+            '4. Using the search box, look for "Python" and find your Python installation (not the Launcher).'
+        )
+        print(
+            '5. Click the 3 dots next to your Python installation and choose "Modify".'
+        )
+        print('6. If the User Account Control window appears, click on "Yes".')
+        print('7. After the Python Setup window appeared, choose "Modify".')
+        print(
+            '8. In the Optional features section, make sure "tcl/tk and IDLE" option is checked and then click "Next".'
+        )
+        print('9. After that, click "Install".')
+    elif windows_version.major == 10:
+        # Show the steps for Windows 10
+
+        print("1. Open the Settings app.")
+        print('2. From the list of settings categories, choose "Apps"')
+        print(
+            '3. Using the search box, look for "Python" and find your Python installation (not the Launcher).'
+        )
+        print('4. Click on your Python installation, then choose "Modify".')
+        print('5. If the User Account Control window appears, click on "Yes".')
+        print('6. After the Python Setup window appeared, choose "Modify"')
+        print(
+            '7. In the Optional features section, make sure "tcl/tk and IDLE" option is checked and then click "Next".'
+        )
+        print('8. After that, click "Install".')
+    elif windows_version.major == 6 and windows_version.minor <= 6.3:
+        # Show the steps for Windows 8.1 and older (up to Windows Vista)
+
+        print("1. Open Control Panel.")
+        print(
+            '2. Using the search box, look for "Programs and features" and when found click on it.'
+        )
+        print(
+            '3. In the list of the programs displayed, look for your Python installation (not the Launcher), right-click on it and then choose "Change".'
+        )
+        print('4. If the User Account Control window appears, click on "Yes"')
+        print('5. After the Python Setup window appeared, choose "Modify"')
+        print(
+            '6. In the Optional features section, make sure "tcl/tk and IDLE" option is checked and then click "Next".'
+        )
+        print('7. After that, click "Install".')
+
+    sys.exit(1)
 
 try:
     from customtkinter import (
