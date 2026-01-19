@@ -95,8 +95,8 @@ rnbtbs: List[int] = []
 rnbbcs: List[int] = []
 accent_color_titlebars: List[int] = []
 accent_color_borders: List[int] = []
-old_wndprocs: Dict[int, ctypes.c_uint64] = {}
-new_wndprocs: Dict[int, ctypes.c_uint64] = {}
+old_wndprocs: Dict[int, Any] = {}
+new_wndprocs: Dict[int, Any] = {}
 
 WINDOWS_VERSION = float(platform.version().split(".")[0])
 
